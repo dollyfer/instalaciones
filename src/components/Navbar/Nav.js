@@ -1,10 +1,11 @@
 import React from 'react'
+import './Nav.css'
 
 const Nav = () => {
   return (
     <div>
-      <ul>
-        <li>
+      <ul className='listas'>
+        <li className='items'>
           <a href='./'>Productos</a>
         </li>
         <li>

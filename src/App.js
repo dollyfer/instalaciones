@@ -3,15 +3,13 @@ import './App.css';
 import Header from './components/Header/Header'
 
 let styles = {
-  height: '100px',
-  backgroundColor: 'pink', 
+  height: '120px',
+  backgroundColor: '#afeeee', 
 };
 
 function App() {
   return <div style={styles}>
-    <Header>
-
-    </Header>
+    <Header />
   </div>;
 }
 

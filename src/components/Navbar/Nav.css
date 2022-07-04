@@ -1,0 +1,7 @@
+.items{
+    display: flex;
+    text-decoration: none;
+}
+.listas{
+    list-style: none;
+}
