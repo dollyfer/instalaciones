@@ -17,7 +17,7 @@ const ItemListContainer = () => {
 
 export default ItemListContainer */
 import React from "react";
-import './Componente.css'
+import './ItemList.css'
 
 
 const Componente = (props) => {

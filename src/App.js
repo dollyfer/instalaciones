@@ -1,47 +1,46 @@
-import './App.css';
-import Header from './components/Header/Header'
-import Componente from './components/Componente/Componente'
-import { useState, useEffect } from 'react';
-import  ItemCounter from './components/ItemCounter/ItemCounter'
+import "./App.css";
+import Header from "./components/Header/Header";
+import Componente from "./components/ItemList/ItemList";
+import { useState, useEffect } from "react";
+import ItemCounter from "./components/ItemCounter/ItemCounter";
 
 let styles = {
-  height: '120px',
-  backgroundColor: '#afeeee', 
+  height: "120px",
+  backgroundColor: "#afeeee",
 };
 
 function App() {
-  const [numero, setNumero]= useState(0);
-  useEffect(()=>{
-    console.log('componente sumado');
+  const [numero, setNumero] = useState(0);
+  useEffect(() => {
+    console.log("componente sumado");
   }, []);
-  console.log('componente por sumar');
+  console.log("componente por sumar");
   const sumar = () => {
-    console.log('suma');
-    setNumero(numero+1);
+    console.log("suma");
+    setNumero(numero + 1);
   };
   const restar = () => {
-    console.log('resta');
-    setNumero(numero-1);
-  };
-  return (<div style={styles}>
-    <Header/>
-    <section className='clasexd'>
-    <div>
-    <p>Gel Semipermanente</p>
-    {
-      numero < 10 ? (<ItemCounter numero={numero}/>):(<h5>No hay Stock</h5>)
+    if (numero > 0) {
+      console.log("resta");
+      setNumero(numero - 1);
     }
-    
-    <div>
-    <button onClick={sumar}> agregar</button>
-    <button onClick={restar}> eliminar</button>
-    </div>
-    </div>
-    </section>
-  </div>
-  )
-  ;
-}
+  };
+  return (
+    <div style={styles}>
+      <Header />
+      <section className="clasexd">
+        <div>
+          <p>Gel Semipermanente</p>
+          {numero < 5 ? <ItemCounter numero={numero} /> : <h5>Out of Stock</h5>}
 
+          <div>
+            <button onClick={sumar}> agregar</button>
+            <button onClick={restar}> eliminar</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
 
 export default App;
