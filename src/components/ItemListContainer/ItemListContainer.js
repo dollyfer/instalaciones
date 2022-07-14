@@ -37,7 +37,7 @@ const Componente = (props) => {
 
 export default Componente; */
 
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ItemList from "../ItemList/ItemList";
 import img1 from "../../Images/bufferopi.jpg";
 import img2 from "../../Images/cherimoyabase.jpg";
@@ -84,9 +84,31 @@ const Productos = [
 ];
 
 const ItemListContainer = () => {
+
+ useEffect(() => {
+
+  fetch('../../../public/productos.json',
+  {headers:
+    {
+      "Content-type":"application/json","accept":"application/json"
+    }
+
+  }
+  )
+  .then((response) =>
+  {
+    console.log(response)
+    return response.json()
+
+  })
+  .then ((data)=> console.log (data))
+
+ }, [])
+
   return (
     <>
       <ItemList productos={Productos}></ItemList>
+  
     </>
   );
 };
