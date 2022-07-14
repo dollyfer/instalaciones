@@ -1,13 +1,15 @@
 import "./App.css";
 import Header from "./components/Header/Header";
-import Componente from "./components/ItemList/ItemList";
 import { useState, useEffect } from "react";
 import ItemCounter from "./components/ItemCounter/ItemCounter";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 let styles = {
   height: "120px",
   backgroundColor: "#afeeee",
 };
+
+
 
 function App() {
   const [numero, setNumero] = useState(0);
@@ -39,6 +41,7 @@ function App() {
           </div>
         </div>
       </section>
+      <ItemListContainer></ItemListContainer>
     </div>
   );
 }
