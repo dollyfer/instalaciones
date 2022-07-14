@@ -1,10 +1,10 @@
 import React from "react";
 
-const Item = ({info}) => {
-    return(
+const Item = ({ info }) => {
+    return (
         <div>
             <div>{info.title}</div>
-            <div>{info.img}</div>
+            <img src={info.img}></img>
             <div>{info.price}</div>
             <div>{info.description}</div>
             <button>Detalle</button>
