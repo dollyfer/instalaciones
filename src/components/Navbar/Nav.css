@@ -1,7 +1,9 @@
-.items{
-    display: flex;
-    text-decoration: none;
-}
 .listas{
-    list-style: none;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 300px;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 16%;
 }

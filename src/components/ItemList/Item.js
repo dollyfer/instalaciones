@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import ItemDetail from "../ItemDetailContainer/ItemDetail"
+import "./Item.css";
 
 
 const Item = ({ info }) => {
@@ -12,9 +13,9 @@ const Item = ({ info }) => {
 
 
     return (
-        <div>
+        <div className="bdy, formato">
             <div>{info.title}</div>
-            <img src={info.image}></img>
+            <img className="t" src={info.image}></img>
             <div>{info.price}</div>
             <button onClick ={ cambiar }>Detalle</button>
             { iShow && <ItemDetail detalles={info}></ItemDetail>}

@@ -1,0 +1,26 @@
+.bdy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.t{
+    width: 100px;
+}
+
+.formato{
+    border: black 2px solid;
+    padding: 2%;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+

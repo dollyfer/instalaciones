@@ -1,0 +1,8 @@
+.bdy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    width: 150px;
+}

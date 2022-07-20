@@ -1,4 +1,5 @@
 import React from "react";
+import "../ItemDetailContainer/ItemDetail.css";
 
 const ItemDetail = (props) => {
   return (
@@ -7,7 +8,7 @@ const ItemDetail = (props) => {
       <img src={props.detalles.image}></img>
       <div>Price: {props.detalles.price}</div>
       <div>Description: {props.detalles.description}</div>
-	  <div>Category: {props.detalles.category}</div>
+      <div>Category: {props.detalles.category}</div>
     </div>
   );
 };
