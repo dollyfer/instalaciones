@@ -1,9 +1,8 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import "./App.css";
 import Header from "./components/Header/Header";
-import ItemCounter from "./components/ItemCounter/ItemCounter";
-import ItemList from './components/ItemList/ItemList';
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 let styles = {
   height: "120px",
@@ -16,6 +15,7 @@ function App() {
     <Header></Header>
       <Routes style={styles}>
         <Route path="/" element={<ItemListContainer />} />
+        <Route path="item/:id" element={<ItemDetailContainer />} />
       </Routes>
     </BrowserRouter>
   );

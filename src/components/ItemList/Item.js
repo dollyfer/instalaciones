@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import ItemDetail from "../ItemDetailContainer/ItemDetail"
+import ItemDetail from "../ItemDetail/ItemDetail"
 import "./Item.css";
+import {Link} from "react-router-dom";
 
 
 const Item = ({ info }) => {
@@ -17,7 +18,11 @@ const Item = ({ info }) => {
             <div>{info.title}</div>
             <img className="t" src={info.image}></img>
             <div>{info.price}</div>
+
+            <Link to={`item/${info.id}`}>
             <button onClick ={ cambiar }>Detalle</button>
+            </Link>
+
             { iShow && <ItemDetail detalles={info}></ItemDetail>}
         </div>
     )
