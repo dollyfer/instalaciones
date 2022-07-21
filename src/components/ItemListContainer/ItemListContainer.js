@@ -15,7 +15,6 @@ const ItemListContainer = () => {
         .then((data) => setProductos(data));
     }, 1000);
   }, []);
-  console.log(productos);
 
   return (
     <>

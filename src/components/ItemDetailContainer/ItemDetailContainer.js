@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = () => {
 
     let param = useParams().id
-    console.log(param)
 
     const [product,setProduct] = useState({})
 
