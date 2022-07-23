@@ -1,30 +1,29 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./ItemCounter.css";
 
-export const ItemCounter = () => {
-  const [numero, setNumero] = useState(0);
+export const ItemCounter = (props) => {
+  const [counter, setCounter] = useState(0);
 
-  const sumar = () => {
-    console.log("suma");
-    setNumero(numero + 1);
+  const incrementarCounter = () => {
+    setCounter((prevState) => prevState + 1);
   };
 
-  const restar = () => {
-    if (numero > 0) {
-      console.log("resta");
-      setNumero(numero - 1);
+  const restarCounter = () => {
+    if (counter > 0) {
+      setCounter((prevState) => prevState - 1);
     }
   };
 
   return (
     <section className="clasexd">
-      {numero < 5 ? <h3>{numero}</h3> : <h3>Out of stock</h3>}
+      {counter < 5 ? <h3>{counter}</h3> : <h3>Out of stock</h3>}
       <div>
-        <p>Gel Semipermanente</p>
-
         <div>
-          <button onClick={sumar}> agregar</button>
-          <button onClick={restar}> eliminar</button>
+          <button onClick={incrementarCounter}> Incrementar</button>
+          <button onClick={restarCounter}> Decrementar</button>
+          <button onClick={() => props.changeBoolean(counter)}>
+            Agregar al Carrito
+          </button>
         </div>
       </div>
     </section>
