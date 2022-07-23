@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import "./ItemDetail.css";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import { Link } from "react-router-dom";
+
 
 const ItemDetail = (props) => {
 
