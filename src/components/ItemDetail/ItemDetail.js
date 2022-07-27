@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import "./ItemDetail.css";
 import ItemCounter from "../ItemCounter/ItemCounter";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
 
 
 const ItemDetail = (props) => {
@@ -9,10 +10,13 @@ const ItemDetail = (props) => {
   const [isBought, setIsBought] = useState(true);
   const [itemsComprados, setItemsComprados] = useState(0);
 
+  const { addItem } = useContext(CartContext);
+
   const changeBoolean = (counter) => {
     console.log(counter);
     setIsBought(false);
     changeItemsComprados(counter);
+    addItem(props.product, counter);
   };
 
   const changeItemsComprados = (counter) => {
@@ -33,9 +37,9 @@ const ItemDetail = (props) => {
       <div>Description: {props.product.description}</div>
       <div>Category: {props.product.category}</div>
       <div>Items agregados: {itemsComprados}</div>
-
+      
       {isBought ? (
-        <ItemCounter changeBoolean={changeBoolean}></ItemCounter>
+        <ItemCounter changeBoolean={changeBoolean} ></ItemCounter>
       ) : (
         carrito
       )}

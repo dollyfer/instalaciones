@@ -5,6 +5,7 @@ export const ItemCounter = (props) => {
   const [counter, setCounter] = useState(0);
 
   const incrementarCounter = () => {
+    if(counter < 10)
     setCounter((prevState) => prevState + 1);
   };
 
@@ -16,7 +17,7 @@ export const ItemCounter = (props) => {
 
   return (
     <section className="clasexd">
-      {counter < 5 ? <h3>{counter}</h3> : <h3>Out of stock</h3>}
+      {counter}
       <div>
         <div>
           <button onClick={incrementarCounter}> Incrementar</button>
