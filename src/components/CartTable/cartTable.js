@@ -54,9 +54,19 @@ const cartTable = () => {
                   </div>
                 </th>
               </tr>
+            </tfoot>
         </table>
     </div>
   )
+
+  render() {
+    const carritoPagina = this.state.carritoPagina;
+    return (
+      <div>
+        <b>{carritoPagina ? {listaCarrito} : 'no hay items'}</b>
+      </div>
+    );
+  }
 }
 
 export default cartTable

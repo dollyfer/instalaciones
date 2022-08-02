@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartProvider } from "./Context/CartContext";
+import CartTable from "./components/CartTable/cartTable";
 
 let styles = {
   height: "120px",
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/category/:name" element={<ItemListContainer />} />
           <Route path="item/:id" element={<ItemDetailContainer />} />
+          <Route path="/carrito" element={<CartTable/>} />
         </Routes>
       </BrowserRouter>
     </CartProvider>
