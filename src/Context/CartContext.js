@@ -19,14 +19,25 @@ export const CartProvider = ({ children }) => {
         category: product.category,
         image: product.image,
         quantity: counter,
+        price: product.price
       });
     }
     setListaCarrito([...listaCarrito]);
     console.log(listaCarrito);
   };
+  
+  const quitarProduct = (product) => { 
+    
+    const actualizado = listaCarrito.filter ( (productFiltered) => product.id !== productFiltered.id);
+    setListaCarrito([...actualizado])
+  }
+
+  const deleteCart = () => {
+    setListaCarrito ([])
+  };
 
   return (
-    <CartContext.Provider value={{ addItem, listaCarrito }}>
+    <CartContext.Provider value={{ addItem, listaCarrito, quitarProduct, deleteCart }}>
       {children}
     </CartContext.Provider>
   );
