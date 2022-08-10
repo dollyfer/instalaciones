@@ -1,56 +1,52 @@
 import React, {useState, useEffect} from 'react'
-import {useParams} from 'react-router-dom';
-import ItemDetail from '../ItemDetail/ItemDetail';
-import { collection, doc, getDocs, getFirestore, query, where } from "firebase/firestore";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import ItemDetail from "../ItemDetail/ItemDetail";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+  documentId,
+} from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 
-    let param = useParams().id
-  console.log(param)
-    const [product,setProduct] = useState([])
+  // Obtengo el ID del producto donde clickeo
+  const paramId = useParams().id;
 
-    const [findx,setFindx] = useState([])
+  // Genero el estado donde voy a guardar el producto
+  const [product, setProduct] = useState([]);
 
-    useEffect(() => { 
-      const probar = async() => {
+  useEffect(() => {
 
-        const db = getFirestore();
-        
-          const itemsCollection = query (collection(db, "products"))
-      
-          getDocs(itemsCollection).then((snapshot) => {
-            setFindx(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-  
-          });
-  
-          const filtro = findx.find((productFilter) =>
-            param === productFilter.id)
-  
-            setProduct(filtro)
-  
-          console.log(product)
-      }
-      probar()
-    }, [param]);
+    // Conexion a la database
+    const db = getFirestore();
 
-/*    useEffect(() => {
-        setTimeout(() => {
-            fetch(`https://fakestoreapi.com/products/${param}`, {
-              headers: {
-                "Access-Control-Allow-Origin": "*",
-              },
-            })
-              .then((res) => res.json())
-              .then((data) => setProduct(data));
-          }, 1000);
-    }, [param]) */
-    
+    // Consulta a la database, me traigo el producto que tenga el ID igual a mi paramId
+    // Para acceder al ID hay que usar el documentId(), "id" no funciona como key
+    const itemsCollection = query(
+      collection(db, "products"),
+      where(documentId(), "==", paramId)
+    );
+
+    // La consulta de firebase siempre me trae un array, no importa si tiene solo un elemento
+    // Tengo que pasarle un objeto a mi componente hijo
+    // En itemSelected guardo el array y luego en products guardo el objeto unico que me traigo
+    // que se guarda en el indice 0 de mi array, de esa forma en products guardo 1 objeto
+    // y mi componente hijo va a poder acceder a las propiedades(keys)
+    getDocs(itemsCollection).then((snapshot) => {
+      const itemSelected = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setProduct(itemSelected[0]);
+    });
+  }, [paramId]);
 
   return (
     <>
-        <ItemDetail product={product}></ItemDetail>
+      <ItemDetail product={product}></ItemDetail>
     </>
-  )
-}
+  );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
