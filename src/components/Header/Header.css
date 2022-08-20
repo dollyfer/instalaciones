@@ -1,7 +1,10 @@
 .header{
     display: flex;
     flex-direction: row;
+    background-color: rgb(141, 226, 228);
+
 }
-.texto{
+.linkss{
+    display: flex;
     padding: 2%;
 }

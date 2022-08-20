@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <section className='header'>
         <Logo></Logo>
-        <h1 className='texto'>Nails With Do</h1>
+        <h1 className='linkss'>Nails With Do</h1>
         <Nav></Nav>
         <CartWidget></CartWidget>
     </section>
