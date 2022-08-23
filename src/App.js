@@ -5,6 +5,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartProvider } from "./Context/CartContext";
 import CartTable from "./components/CartTable/CartTable";
+import "./components/Footer/Footer";
 
 let styles = {
   height: "120px",
@@ -24,7 +25,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </CartProvider>
-
   );
 }
 
